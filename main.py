@@ -41,8 +41,12 @@ def scrape_facebook_page():
     options.add_argument("--disable-extensions")  # Disable extensions
     options.add_argument("--disable-popup-blocking")  # Disable pop-ups
 
+    # Debug: print ChromeDriver path
+    chrome_driver_path = ChromeDriverManager(version="114.0.5735.90").install()
+    print(f"ChromeDriver path: {chrome_driver_path}")
+
     # Manually specify the ChromeDriver version
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(version="114.0.5735.90").install()), options=options)
+    driver = webdriver.Chrome(service=Service(chrome_driver_path), options=options)
 
     driver.get(FACEBOOK_PAGE_URL)
     time.sleep(5)  # Wait for the page to load completely
