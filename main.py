@@ -99,4 +99,4 @@ async def check_for_new_posts():
 if __name__ == "__main__":
     while True:
         asyncio.run(check_for_new_posts())
-        time.sleep(15)
+        time.sleep(300)
